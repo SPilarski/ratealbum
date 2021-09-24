@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Album extends Model
 {
     protected $fillable = [
-        'album_name', 'album_detail', 'genre'
+       'author', 'image_path' ,'album_name', 'album_detail', 'genre'
     ];
 
     public function users(){
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsToMany(User::class)->withPivot('rate');
     }
 }
